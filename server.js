@@ -16,10 +16,17 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //connecting to mongo db
-mongoose.connect("mongodb://localhost/onlineOfflineTracker", {
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/onlineOfflineTracker";
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+});
+
+/* mongoose.connect("mongodb://localhost/onlineOfflineTracker", {
   useNewUrlParser: true,
   useFindAndModify: false
- });
+ }); */
 
 // routes
 app.use(require("./routes/api.js"));
