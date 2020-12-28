@@ -1,4 +1,11 @@
 //using activity 26 from week 17 of bootcamp as a base for the code...
+const indexedDB =
+  window.indexedDB ||
+  window.mozIndexedDB ||
+  window.webkitIndexedDB ||
+  window.msIndexedDB ||
+  window.shimIndexedDB;
+
 let db;
 
 //db request for buget database
